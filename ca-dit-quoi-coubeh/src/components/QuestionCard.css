@@ -1,0 +1,66 @@
+/* src/components/QuestionCard.css */
+
+.question-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff; /* Couleur de fond blanche */
+    border-radius: 12px; /* Bords arrondis */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    padding: 20px; /* Espacement intérieur */
+    width: 90%; /* Largeur responsive */
+    max-width: 600px; /* Largeur maximale */
+    margin: 20px auto; /* Centre horizontalement avec une marge */
+  }
+  
+  h2 {
+    font-size: 24px; /* Taille de police */
+    color: #333; /* Couleur du texte */
+    margin-bottom: 20px; /* Espacement en bas */
+    text-align: center; /* Centrer le texte */
+  }
+  
+  .answer-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Largeur à 100% */
+  }
+  
+  .yes-no-options,
+  .scale-options {
+    display: flex;
+    justify-content: center; /* Centrer les options */
+    gap: 15px; /* Espacement entre les boutons */
+    margin-bottom: 20px; /* Espacement en bas */
+  }
+  
+  button {
+    background-color: #007bff; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte du bouton */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Bords arrondis */
+    padding: 10px 15px; /* Espacement intérieur */
+    font-size: 16px; /* Taille de police */
+    cursor: pointer; /* Curseur pointeur */
+    transition: background-color 0.3s; /* Transition douce */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Couleur au survol */
+  }
+
+  
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between; /* Également espacé */
+    width: 100%; /* Largeur à 100% */
+  }
+
+
+
+
+  
+  
+

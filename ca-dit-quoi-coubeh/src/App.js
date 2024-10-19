@@ -4,6 +4,8 @@ import QuizPage from './pages/QuizPage';
 import Home from './pages/Home';
 import './App.css'; // Import global styles
 import Guide from './pages/Guide';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (

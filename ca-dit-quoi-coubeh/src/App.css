@@ -37,11 +37,42 @@
   }
 }
 
-
 .app-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-color: #f0f0f0;
+  padding: 0 20px; /* Add padding for mobile responsiveness */
+}
+
+/* Style for the Swiper */
+.quiz-container {
+  width: 100%;
+  max-width: 600px; /* Limit the width on larger screens */
+  margin: 0 auto; /* Center the quiz container */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Full width for responsive slides */
+  height: 400px; /* Set a height for the question slides */
+  background: white; /* Card background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
+  transition: transform 0.3s ease; /* Smooth transition for swipe */
+}
+
+/* Tinder-like swipe animations */
+.swiper-slide-active {
+  transform: scale(1.05); /* Scale up the active slide */
+}
+
+/* Additional mobile styles */
+@media (max-width: 768px) {
+  .swiper-slide {
+    height: 300px; /* Adjust height for mobile devices */
+  }
 }

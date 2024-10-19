@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Question from '../components/Question';
 import ProgressBar from '../components/ProgressBar';
@@ -18,52 +18,76 @@ const questions = [
 
 function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState({}); 
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Determine if mobile
+
+  useEffect(() => {
+    // Update isMobile when window resizes
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup listener on unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleNextQuestion = () => {
-    setCurrentQuestion((prevQuestion) =>
-      prevQuestion < questions.length - 1 ? prevQuestion + 1 : prevQuestion
-    );
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    }
   };
 
   const handlePrevQuestion = () => {
-    setCurrentQuestion((prevQuestion) =>
-      prevQuestion > 0 ? prevQuestion - 1 : prevQuestion
-    );
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+    }
   };
 
   const handleAnswerSelected = (questionId, answer) => {
     setSelectedAnswers((prevAnswers) => ({
       ...prevAnswers,
-      [questionId]: answer, 
+      [questionId]: answer,
     }));
   };
 
   return (
     <div className="quiz-container">
       <ProgressBar progress={(currentQuestion / questions.length) * 100} />
-      
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={1}  // Adjust slidesPerView to show one question per slide
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
-      >
-        {questions.map((question) => (
-          <SwiperSlide key={question.id}>
-            <Question
-              questionData={question}
-              onNext={handleNextQuestion}
-              onPrev={handlePrevQuestion}
-              currentQuestion={currentQuestion}
-              totalQuestions={questions.length}
-              onAnswerSelected={(answer) => 
-                handleAnswerSelected(question.id, answer)
-              }
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+
+      {isMobile ? (
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={1}  // Show one question at a time
+          onSlideChange={(swiper) => setCurrentQuestion(swiper.activeIndex)} // Update question index on slide change
+        >
+          {questions.map((question) => (
+            <SwiperSlide key={question.id}>
+              <Question
+                questionData={question}
+                onAnswerSelected={(answer) =>
+                  handleAnswerSelected(question.id, answer)
+                }
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      ) : (
+        <div className="desktop-quiz">
+          <Question
+            questionData={questions[currentQuestion]}
+            onAnswerSelected={(answer) =>
+              handleAnswerSelected(questions[currentQuestion].id, answer)
+            }
+          />
+          <div className="button-container">
+            <button onClick={handlePrevQuestion} disabled={currentQuestion === 0}>
+              Previous
+            </button>
+            <button onClick={handleNextQuestion} disabled={currentQuestion === questions.length - 1}>
+              Next
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

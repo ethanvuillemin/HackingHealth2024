@@ -1,0 +1,52 @@
+.quiz-container {
+    width: 100%;
+    max-width: 600px; /* Limit the width on larger screens */
+    margin: 0 auto; /* Center the quiz container */
+    padding: 20px; /* Add some padding for mobile devices */
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Full width for responsive slides */
+    height: 400px; /* Set a height for the question slides */
+    background: white; /* Card background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
+    transition: transform 0.3s ease; /* Smooth transition for swipe */
+  }
+  
+  /* Button styling for next and previous actions */
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Space above buttons */
+  }
+  
+  button {
+    background-color: #61dafb; /* Your button color */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:disabled {
+    background-color: #ccc; /* Gray out disabled buttons */
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #21a1f1; /* Darker shade on hover */
+  }
+  
+  /* Adjustments for mobile responsiveness */
+  @media (max-width: 768px) {
+    .swiper-slide {
+      height: 300px; /* Adjust height for mobile devices */
+    }
+  }
+  

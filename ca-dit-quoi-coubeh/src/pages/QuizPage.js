@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import Slider from 'react-slick'; // Import React-Slick
 import Question from '../components/Question';
 import ProgressBar from '../components/ProgressBar';
 import './QuizPage.css'; // Import QuizPage-specific CSS
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 // Sample questions array
 const questions = [
@@ -18,7 +20,6 @@ const questions = [
 
 function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState({});
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Determine if mobile
 
   useEffect(() => {
@@ -30,62 +31,52 @@ function QuizPage() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    }
-  };
-
-  const handlePrevQuestion = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-    }
-  };
-
   const handleAnswerSelected = (questionId, answer) => {
-    setSelectedAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [questionId]: answer,
-    }));
+    // Implement your answer selection logic if needed
+  };
+
+  // Settings for React-Slick
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    afterChange: (current) => setCurrentQuestion(current), // Update question index on slide change
   };
 
   return (
     <div className="quiz-container">
       <ProgressBar progress={(currentQuestion / questions.length) * 100} />
 
-      {isMobile ? (
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={1}  // Show one question at a time
-          onSlideChange={(swiper) => setCurrentQuestion(swiper.activeIndex)} // Update question index on slide change
-        >
-          {questions.map((question) => (
-            <SwiperSlide key={question.id}>
-              <Question
-                questionData={question}
-                onAnswerSelected={(answer) =>
-                  handleAnswerSelected(question.id, answer)
-                }
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      ) : (
-        <div className="desktop-quiz">
-          <Question
-            questionData={questions[currentQuestion]}
-            onAnswerSelected={(answer) =>
-              handleAnswerSelected(questions[currentQuestion].id, answer)
-            }
-          />
-          <div className="button-container">
-            <button onClick={handlePrevQuestion} disabled={currentQuestion === 0}>
-              Previous
-            </button>
-            <button onClick={handleNextQuestion} disabled={currentQuestion === questions.length - 1}>
-              Next
-            </button>
+      <Slider {...settings}>
+        {questions.map((question) => (
+          <div key={question.id} className="question-card">
+            <Question
+              questionData={question}
+              onAnswerSelected={(answer) =>
+                handleAnswerSelected(question.id, answer)
+              }
+            />
           </div>
+        ))}
+      </Slider>
+
+      {/* Navigation buttons for desktop view */}
+      {!isMobile && (
+        <div className="button-container">
+          <button
+            onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
+            disabled={currentQuestion === 0}
+          >
+            Previous
+          </button>
+          <button
+            onClick={() => setCurrentQuestion(Math.min(questions.length - 1, currentQuestion + 1))}
+            disabled={currentQuestion === questions.length - 1}
+          >
+            Next
+          </button>
         </div>
       )}
     </div>

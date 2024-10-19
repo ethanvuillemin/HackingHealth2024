@@ -4,7 +4,7 @@ export default function Home(){
 
     return(
         <div>
-            Hi ! 
+            <h3><strong>ça dit quoi KOUBEH !</strong></h3>
         </div>
     )
 };

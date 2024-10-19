@@ -3,6 +3,7 @@ import Slider from 'react-slick'; // Import React-Slick
 import Question from '../components/Question';
 import ProgressBar from '../components/ProgressBar';
 import './QuizPage.css'; // Import QuizPage-specific CSS
+import logo from "../assets/logo.png";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -26,7 +27,7 @@ function QuizPage() {
     // Update isMobile when window resizes
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
-    
+
     // Cleanup listener on unmount
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -47,9 +48,16 @@ function QuizPage() {
 
   return (
     <div className="quiz-container">
-      <ProgressBar progress={(currentQuestion / questions.length) * 100} />
+      <div style={{marginBottom: '5rem'}} >
+        <img src={logo} alt="Logo" className="app-logo" style={{ maxWidth: "100vw" }} />
+      </div>
 
-      <Slider {...settings}>
+      <div style={{paddingLeft: '2rem', paddingRight: '2rem'}}>
+        <ProgressBar progress={(currentQuestion / questions.length) * 100} />
+      </div>
+
+    <div style={{paddingLeft: '1rem', paddingRight: '1rem'}} >
+    <Slider {...settings}>
         {questions.map((question) => (
           <div key={question.id} className="question-card">
             <Question
@@ -62,23 +70,11 @@ function QuizPage() {
         ))}
       </Slider>
 
-      {/* Navigation buttons for desktop view */}
-      {!isMobile && (
-        <div className="button-container">
-          <button
-            onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
-            disabled={currentQuestion === 0}
-          >
-            Previous
-          </button>
-          <button
-            onClick={() => setCurrentQuestion(Math.min(questions.length - 1, currentQuestion + 1))}
-            disabled={currentQuestion === questions.length - 1}
-          >
-            Next
-          </button>
-        </div>
-      )}
+    </div>
+
+
+
+
     </div>
   );
 }

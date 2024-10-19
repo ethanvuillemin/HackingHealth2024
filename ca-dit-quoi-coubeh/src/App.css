@@ -1,5 +1,20 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the card or container */
+.card {
+  width: 100vw;   /* Full viewport width */
+  padding: 20px;  /* Optional padding for the card content */
+  box-sizing: border-box; /* Ensures padding is included in width calculation */
+  background-color: white; /* Optional: Add a background color */
+  border-radius: 10px; /* Optional: Round the corners */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
 
 .App-logo {
@@ -14,7 +29,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,11 +51,11 @@
   }
 }
 
-
+/* Update the app container to ensure the full width is utilized */
 .app-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  width: 100vw; /* Full width */
 }

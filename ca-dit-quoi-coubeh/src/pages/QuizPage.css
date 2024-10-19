@@ -1,52 +1,55 @@
 .quiz-container {
-    width: 100%;
-    max-width: 600px; /* Limit the width on larger screens */
-    margin: 0 auto; /* Center the quiz container */
-    padding: 20px; /* Add some padding for mobile devices */
-  }
-  
+  width: 100%;
+  max-width: 600px; /* Limite la largeur sur les écrans larges */
+  margin: 0 auto; /* Centre le conteneur du quiz */
+  padding: 20px; /* Ajoute du padding pour les appareils mobiles */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Pleine largeur pour les slides */
+  height: 400px; /* Hauteur des slides */
+  background-color: #ffffff; /* Couleur de fond des cartes */
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Effet d'ombre pour le style des cartes */
+  transition: transform 0.3s ease; /* Transition douce pour l'effet de swipe */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Espace entre le contenu et les boutons */
+}
+
+button {
+  background-color: #61dafb; /* Couleur des boutons */
+  border: none;
+  border-radius: 5px; /* Coins arrondis */
+  color: white;
+  padding: 10px 20px; /* Espace à l'intérieur des boutons */
+  cursor: pointer;
+  font-size: 16px; /* Taille de police */
+  transition: background-color 0.3s ease; /* Transition douce au survol */
+}
+
+button:disabled {
+  background-color: #ccc; /* Couleur pour les boutons désactivés */
+  cursor: not-allowed; /* Change le curseur pour les boutons désactivés */
+}
+
+button:hover:not(:disabled) {
+  background-color: #21a1f1; /* Changement de couleur au survol */
+}
+
+@media (max-width: 768px) {
   .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%; /* Full width for responsive slides */
-    height: 400px; /* Set a height for the question slides */
-    background: white; /* Card background color */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
-    transition: transform 0.3s ease; /* Smooth transition for swipe */
+    height: 300px; /* Ajuste la hauteur pour les mobiles */
   }
-  
-  /* Button styling for next and previous actions */
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px; /* Space above buttons */
-  }
-  
+
   button {
-    background-color: #61dafb; /* Your button color */
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
+    padding: 8px 16px; /* Réduction de la taille des boutons sur mobile */
+    font-size: 14px; /* Réduction de la taille de la police sur mobile */
   }
-  
-  button:disabled {
-    background-color: #ccc; /* Gray out disabled buttons */
-    cursor: not-allowed;
-  }
-  
-  button:hover:not(:disabled) {
-    background-color: #21a1f1; /* Darker shade on hover */
-  }
-  
-  /* Adjustments for mobile responsiveness */
-  @media (max-width: 768px) {
-    .swiper-slide {
-      height: 300px; /* Adjust height for mobile devices */
-    }
-  }
-  
+}

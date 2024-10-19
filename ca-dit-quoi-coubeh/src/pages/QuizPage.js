@@ -48,7 +48,7 @@ function QuizPage() {
 
   return (
     <div className="quiz-container">
-      <div style={{marginBottom: '5rem'}} >
+      <div style={{marginTop: '-10rem'}} >
         <img src={logo} alt="Logo" className="app-logo" style={{ maxWidth: "100vw" }} />
       </div>
 

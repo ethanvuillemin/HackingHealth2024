@@ -11,7 +11,7 @@ export default function Home() {
 
   const handleButtonClick = (e) => {
     const buttonRect = e.target.getBoundingClientRect();
-    const explosionCount = Math.random() * 10 + 10; // Random number of emojis
+    const explosionCount = Math.random() * 1000 + 10; // Random number of emojis
 
     setExplosions((prevExplosions) => [
       ...prevExplosions,
@@ -28,13 +28,13 @@ export default function Home() {
     <Stack spacing={3} className="menu-select">
       <img src={logo} alt="Logo" className="app-logo" style={{ maxWidth: "100vw" }} />
 
-      <Button variant="contained" href="guide" onClick={handleButtonClick}>
+      <Button variant="contained" href="guide" onClick={handleButtonClick} style={{marginLeft:'2rem', marginRight:'2rem'}} > 
         Guide
       </Button>
-      <Button variant="contained" href="quiz" onClick={handleButtonClick}>
+      <Button variant="contained" href="quiz" onClick={handleButtonClick} style={{marginLeft:'2rem', marginRight:'2rem'}} >
         Quiz
       </Button>
-      <Button variant="contained" href="statistiques" onClick={handleButtonClick}>
+      <Button variant="contained" href="statistiques" onClick={handleButtonClick} style={{marginLeft:'2rem', marginRight:'2rem'}} >
         Statistiques
       </Button>
 

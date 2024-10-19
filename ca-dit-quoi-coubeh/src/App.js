@@ -4,10 +4,6 @@ import QuizPage from './pages/QuizPage';
 import Home from './pages/Home';
 import './App.css'; // Import global styles
 import Guide from './pages/Guide';
-<<<<<<< Updated upstream
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-=======
 import Themes from './pages/Themes';
 import Acceuil from "./pages/Quiz/Acceuil";
 import Avis from "./pages/Quiz/Avis";
@@ -16,7 +12,6 @@ import Experience from "./pages/Quiz/Experience";
 import Lieu from "./pages/Quiz/Lieu";
 import Prise from "./pages/Quiz/Prise";
 import Sortie from "./pages/Quiz/Sortie";
->>>>>>> Stashed changes
 
 function App() {
   return (

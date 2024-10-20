@@ -35,13 +35,8 @@ const questions = [
   {
     id: 3,
     text: "Le livret d’accueil, il t’a servi à quelque chose ?",
-    type: "multiple_choice",
-    options: [
-      { emoji: "📚", label: "Trop utile, je l’ai lu direct !" },
-      { emoji: "😊", label: "Ouais, j’ai regardé vite fait" },
-      { emoji: "😐", label: "Ça m’a pas trop aidé" },
-      { emoji: "🙁", label: "Quel livret ?" },
-    ],
+    emoji : ["👎",  "👍"],
+    type: "scale",
   },
   {
     id: 4,
@@ -57,46 +52,26 @@ const questions = [
   {
     id: 5,
     text: "Le ménage dans les lieux communs (salles de bain/toilettes), ça le fait ?",
-    type: "multiple_choice",
-    options: [
-      { emoji: "✨", label: "Nickel chrome !" },
-      { emoji: "😊", label: "C’est propre la plupart du temps" },
-      { emoji: "😐", label: "Ça pourrait être mieux" },
-      { emoji: "🙁", label: "Y’a pas pire …" },
-    ],
+    emoji : ["🤮",  "🤩"],
+    type: "scale",
   },
   {
     id: 6,
     text: "Les repas ici, t’en penses quoi ?",
-    type: "multiple_choice",
-    options: [
-      { emoji: "🍔", label: "Trop bon, on dirait un resto !" },
-      { emoji: "😊", label: "Pas mal, je me régale parfois" },
-      { emoji: "😐", label: "Ça se mange…" },
-      { emoji: "🙁", label: "C’est un régime forcé ou quoi ?" },
-    ],
+    emoji : ["🥦",  "🍔"],
+    type: "scale",
   },
   {
     id: 7,
     text: "Tu te sens mieux compris(e) sur ce que tu ressens depuis que tu es ici ?",
-    type: "multiple_choice",
-    options: [
-      { emoji: "😎", label: "Oui, carrément !" },
-      { emoji: "😊", label: "Un peu mieux" },
-      { emoji: "😐", label: "Pas vraiment" },
-      { emoji: "🙁", label: "Pas du tout" },
-    ],
+    emoji : ["👎",  "👍"],
+    type: "scale",
   },
   {
     id: 8,
     text: "Tu as compris les explications sur ce qui t’arrive ?",
-    type: "multiple_choice",
-    options: [
-      { emoji: "🧠", label: "Oui, tout est clair" },
-      { emoji: "😊", label: "Ça va, dans l’ensemble" },
-      { emoji: "😐", label: "Un peu confus" },
-      { emoji: "🙁", label: "Non, j’ai rien compris" },
-    ],
+    emoji : ["🤯",  "🧠"],
+    type: "scale",
   },
   {
     id: 9,
@@ -189,30 +164,20 @@ const questions = [
   {
     id: 17,
     text: "T’as compris quand tu pourras reprendre tes activités (école, sport) ?",
-    type: "multiple_choice",
-    options: [
-      { emoji: "🏃", label: "Oui, c’est bien clair" },
-      { emoji: "😊", label: "Oui, mais pas tout" },
-      { emoji: "😐", label: "Un peu confus" },
-      { emoji: "🙁", label: "Je sais toujours pas" },
-    ],
+    type: "scale",
+    emoji : ["😴",  "🏃"]
   },
   {
     id: 18,
     text: "Tu sais quoi faire si tu te sens mal après ta sortie (contacts) ?",
-    type: "multiple_choice",
-    options: [
-      { emoji: "🚨", label: "Oui, tout est prévu" },
-      { emoji: "😊", label: "Oui, en gros…" },
-      { emoji: "😐", label: "Pas tout, j’avoue" },
-      { emoji: "🙁", label: "Non, je suis paumé(e)" },
-    ],
+    type: "scale",
+    emoji : ["🤔",  "💬"]
   },
   {
     id: 19,
     text: "En gros, c’est quoi ton ressenti sur l’ensemble de ton séjour ici ?",
     type: "scale",
-    scaleMax: 4,
+    emoji : ["⭐️",  "⭐️⭐️⭐️⭐️⭐️"]
   },
 ];
 

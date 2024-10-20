@@ -228,6 +228,7 @@ function QuizPage() {
                 onPrev={() => setCurrentQuestion((prev) => prev - 1)}
                 currentQuestion={currentQuestion}
                 totalQuestions={questions.length}
+                emoji={question.emoji}
               />
             </div>
           ))}

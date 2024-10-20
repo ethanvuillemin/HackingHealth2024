@@ -12,6 +12,7 @@ import Experience from "./pages/Quiz/Experience";
 import Lieu from "./pages/Quiz/Lieu";
 import Prise from "./pages/Quiz/Prise";
 import Sortie from "./pages/Quiz/Sortie";
+import Stats from "./pages/Stats"
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           <Route path="/quiz" element={<QuizPage />} />
           <Route path="/guide" element={<Guide />} />
           <Route path="/themes" element={<Themes />} />
+
+
+          <Route path="/stats" element={<Stats />} />
 
           <Route path="/acceuil" element={<Acceuil />} />
           <Route path="/avis" element={<Avis />} />

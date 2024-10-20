@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { motion, AnimatePresence } from "framer-motion";
 
-const emojiList = ["🎉", "🥳", "🎊", "✨", "🤩", "🔥", "🚀", "💯", "💖", "🎈", "🎁", "😄"]; 
+// const emojiList = ["🎉", "🥳", "🎊", "✨", "🤩", "🔥", "🚀", "💯", "💖", "🎈", "🎁", "😄"]; 
 
-export default function EmojiExplosionButton({ href, children, ...props }) {
+export default function EmojiExplosionButton({ href, children, emojiList ,...props }) {
   const [explosions, setExplosions] = useState([]);
 
   const handleButtonClick = (e) => {
